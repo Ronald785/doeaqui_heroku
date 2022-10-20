@@ -1,0 +1,68 @@
+form.form-inventory {
+    width: 530px;
+}
+
+input.inventory-name {
+    width: 200px;
+    background: #f5f8fa;
+    border-radius: 10px;
+    color: #5c8599;
+}
+
+button.inventory-btn {
+    width: 25px;
+    border-radius: 4px;
+    font-size: 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    background: #3c94dc;
+}
+
+button.inventory-btn.delete {
+    background: #dc3c3c;
+    width: 40px;
+}
+
+
+input.inventory-amount {
+    width: 56px;
+    border-radius: 5px;
+    padding: 0;
+}
+
+.input-block {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+}
+
+select {
+    border: 1px solid #A1E9C5;
+    border-radius: 10px;
+    color: black;
+    font-size: 14px;
+}
+
+option:nth-child(1) {
+    background-color: red;
+}
+
+option:nth-child(2) {
+    background-color: yellow;
+}
+
+option:nth-child(3) {
+    background-color: #3cdc8c;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}

@@ -1,0 +1,53 @@
+{% extends "layout.njk" %}
+
+{% block head %}
+    <title>DoeAqui - Gerenciamento</title>
+{% endblock head %}
+
+{% block content %}
+    <link rel="stylesheet" href="/styles/view.css">
+
+    <div class="user-info">
+        <a href="/manage/edit">
+            <img src="/images/config.svg" alt="Image Config" class="user-config"/>
+        </a>
+        {% if user.image %}
+            <img src="{{ user.image }}" alt="Image {{ user.email }}" class="user-image"/>
+        {% else %}
+            <img src="https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZmlsZXxlbnwwfHwwfHw%3D&w=1000&q=80" alt="Image" class="user-image"/>
+        {% endif %}
+
+        {% if user.name %}
+            <h3 class="manage-username">{{ user.name }}</h3>
+        {% endif %}
+
+        <span class="manage-email">{{ user.email }}</span>
+    </div>
+
+    {# <a href="/manage/edit" class="btn-manage">Editar</a> #}
+    <a href="/auth/logout" class="btn-logout">
+        <img src="/images/logout.png" alt="Image Logout" class="user-logout"/>
+    </a>
+    <a href="/create" class="btn-create-point">Criar</a>
+    {# <a href="javascript:void(0)" onClick="history.go(-1); return false;" class="btn-come-back">Voltar</a> #}
+
+ 
+    {% if centers.length > 0 %}
+        <div class="user-centers">
+            <h2 class="title-user-centers">Centros</h2>
+
+            {% for center in centers %}
+                <div class="center-edit">
+                    <h3 class="center-title">{{ center.name }}</h3>
+                    <div class="center-options">
+                        <a href="/point/view/{{ center.id }}" class="btn-manage">Visualizar</a>
+                        <a href="/point/edit/{{ center.id }}" class="btn-manage edit">Editar</a>
+                        <a href="/point/inventory/{{ center.id }}" class="btn-manage inventary">Estoque</a>
+                        <a href="/point/delet/{{ center.id }}" class="btn-manage delet">Deletar</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+    {# <script src="/scripts/mapView.js"></script> #}
+{% endblock content %}

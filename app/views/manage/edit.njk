@@ -1,0 +1,29 @@
+{% extends "layout.njk" %}
+
+{% block head %}
+    <title>DoeAqui - Editar Gerenciamento</title>
+{% endblock head %}
+
+{% block content %}
+    <link rel="stylesheet" href="/styles/view.css">
+    <link rel="stylesheet" href="/styles/form.css">
+    <link rel="stylesheet" href="/styles/buttons.css">
+    <div class="input-block">
+        <h1 class="title-manage-edit">{{ user.email }}</h1>
+    </div>
+
+    <a href="javascript:void(0)" onClick="history.go(-1); return false;" class="btn-come-back">Voltar</a>
+
+    <form method="POST" action="/manage/edit">
+        <div class="input-block">
+            <label for="name">Nome</label>
+            <input type="text" name="name" value="{{ user.name }}"/>
+        </div>
+        <div class="input-block">
+            <label for="link">Link da imagem</label>
+            <input type="text" name="link"  value="{{ user.image }}"/>
+        </div>
+        <button type="submit" class="primary-button">Salvar</button>
+    </form>
+    <script src="/scripts/mapView.js"></script>
+{% endblock content %}

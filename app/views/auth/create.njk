@@ -1,0 +1,31 @@
+{% extends "layout.njk" %}
+
+{% block head %}
+    <title>DoeAqui - Criar Usuário</title>
+{% endblock head %}
+
+{% block content %}
+    <link rel="stylesheet" href="/styles/login.css">
+
+    <div class="contact">
+        <h1>Criar Usuário</h1>
+        <form method="POST" action="/auth/create">
+            <div class="input-block">
+                <label for="email">E-mail</label>
+                <input name="email"  required/>
+            </div>
+
+            <div class="input-block">
+                <label for="password">Senha</label>
+                <input name="password" type="password" required/>
+            </div>
+            <div class="input-block">
+                <label for="passwordConfirm">Confirmar senha</label>
+                <input name="passwordConfirm" type="password" required/>
+            </div>
+            <button type="submit">Criar</button>
+            <button type="button">
+                <a href="login">Login</a>
+            </button>
+        </form>
+{% endblock content %}

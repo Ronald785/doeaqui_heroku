@@ -1,0 +1,111 @@
+{% extends "layout.njk" %}
+
+{% block head %}
+    <title>DoeAqui - Visualização</title>
+{% endblock head %}
+
+{% block content %}
+    <link rel="stylesheet" href="/styles/view.css">
+
+    <a href="javascript:void(0)" onClick="history.go(-1); return false;" class="btn-come-back">Voltar</a>
+
+    <form class="form-view">
+        <img src="{{ point.photo }}" alt="photo-point" class="image-view">
+        <fieldset>
+            <div class="block">
+                <h1 class="title-view">{{ point.name }}</h1>
+            </div>
+
+            <div class="block">
+                <p class="subtitle-view">{{ point.about }}</p>
+            </div>
+
+            <div class="block">
+                <a href="{{ point.site }}" target="_blank" class="link-point-website">{{ point.site }}</a>
+            </div>
+            
+            <section>
+                <div class="block">
+                    <h2 class="title-contact">Contato</h2>
+                </div>
+
+                <div class="block contact-flex">
+                    <div>
+                        <a href="mailto:{{ point.email }}" target="_blank">
+                            <img src="/images/gmail.svg" alt="icon gmail">
+                        </a>
+                        <p class="contact-paragraph">{{ point.email }}</p>
+                    </div>
+
+                    {% if point.whatsapp != "" %}
+                        <div>
+                            <input type="hidden" id="whatsapp" value="{{ point.whatsapp}}">
+                            <a target="_blank" id="whatsappLink">
+                                <img src="/images/whatsapp.svg" alt="icon whatsapp">
+                            </a>
+                            <p class="contact-paragraph">{{ point.whatsapp }}</p>
+                        </div>
+                    {% endif %}
+                </div>
+            </section>
+
+            <div class="block">
+                <input type="hidden" id="locationLat" value="{{ point.location.lat }}">
+                <input type="hidden" id="locationLng" value="{{ point.location.lng }}">
+                <div class="map-point">
+                    <div id="mapPoint"></div> 
+                </div>
+            </div>
+
+            <div class="block">
+                <p>Horário de funcionamento</p>
+                <div>{{ point.open_hours }}</div>
+                {% if point.open_weekends == "true" %}
+                    <span>Abre no fim de semana</span>
+                {% else %}
+                    <span>Não abre no fim de semana</span>
+                {% endif %}
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <div class="block">
+                <legend>Doações</legend>
+            </div>
+
+            <div class="block">
+                <div>{{ point.instructions }}</div>
+            </div>
+
+            <div class="block">
+                {% if point.donation == "clothes" %}
+                    <h2 class="type-donation">Roupas</h1>
+                {% elif point.donation == "food" %}
+                    <h2 class="type-donation">Comida</h1>
+                {% elif point.donation == "hygiene" %}
+                    <h2 class="type-donation">Produtos de higiene</h1>
+                {% elif point.donation == "blood" %}
+                    <h2 class="type-donation">Sangue</h1>
+                {% endif %}
+            </div>
+        </fieldset>
+
+        {% if inventorys != "" %}
+            <fieldset>
+                <div class="block">
+                    <h2 class="title-contact">Estoque</h2>
+                </div>
+                <div id="container"></div>
+            </fieldset>
+        {% endif %}
+    </form>
+
+    <input type="hidden" id="inventorys" value="{{ inventorys }}">
+
+    <!-- Google Maps API -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2rNZNpzlTbudC8qHoXsNN8i3LGbYWaO0&callback=initMap"></script>
+    <script src="/scripts/mapView.js"></script>
+
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+{% endblock content %}

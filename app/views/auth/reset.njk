@@ -1,0 +1,23 @@
+{% extends "layout.njk" %}
+
+{% block head %}
+    <title>DoeAqui - Recuperar senha</title>
+{% endblock head %}
+
+{% block content %}
+    <link rel="stylesheet" href="/styles/login.css">
+
+    <div class="contact">
+        <h1>Recuperar senha</h1>
+        <form method="POST" action="/auth/reset">
+            <div class="input-block">
+                <label for="email">E-mail</label>
+                <input name="email" required/>
+            </div>
+
+            <button type="submit">Enviar</button>
+            <button type="button">
+                <a href="login">Login</a>
+            </button>
+        </form>
+{% endblock content %}

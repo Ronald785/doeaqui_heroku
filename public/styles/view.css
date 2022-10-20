@@ -1,0 +1,255 @@
+.form-view {
+    width: 50%;
+    margin: 30px auto;
+    background: white;
+    border: 1px solid #D3E2E5;
+    border-radius: 2rem;
+    overflow: hidden;
+    padding: 0px;
+}
+
+.image-view {
+    width: 100%;
+    height: 200px;
+}
+
+fieldset {
+    border: 0;  
+}
+
+fieldset + fieldset {
+    margin-top: 20px;
+}
+
+fieldset legend {
+    width: 100%;
+
+    font-size: 24px;
+    line-height:1.5;
+
+    color: #5c8599;
+    font-weight: 700;
+
+    border-bottom: 1px solid #d3e2e5;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+
+
+div {
+    text-align: center;
+}
+
+.img-select {
+    height: 75px;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.img-select:hover {
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.block {
+    margin: 10px;
+}
+
+.block > p {
+    display: inline-block;
+}
+
+.link-point-website {
+    color: dodgerblue;
+}
+
+.contact-flex {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.contact-paragraph {
+    text-align: center;
+}
+
+.title-view {
+    width: 100%;
+    font-size: 24px;
+    line-height: 1.5;
+    color: #5c8599;
+    font-weight: 700;
+    border-bottom: 1px solid #d3e2e5;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+
+.subtitle-view {
+    font-size: 16px;
+    font-weight: 100;
+}
+
+.title-contact {
+    width: 100%;
+    font-size: 24px;
+    line-height: 1.5;
+    color: #5c8599;
+    font-weight: 700;
+    border-bottom: 1px solid #d3e2e5;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+
+#mapPoint {
+    height: 100%;
+    border-radius: 25px;
+    box-shadow: rgb(0 0 0 / 15%) 1.95px 1.95px 2.6px;
+}
+
+.title-manage-edit{
+    font-size: 24px;
+    margin: 20px;
+}
+
+input {
+    text-align: center;
+}
+
+.user-config {
+    margin-top: 0px;
+    margin-left: 40px;
+    position: absolute;
+    cursor: pointer;
+}
+
+.user-logout {
+    right: 20px;
+    top: 60px;
+    position: fixed;
+}
+
+.user-image{
+    border-radius: 150px;
+    height: 200px;
+    border: 3px solid #3479ea;
+    width: 200px;
+    display: block;
+    margin: 0 auto;
+}
+
+.btn-manage {
+    margin: 10px auto;
+    padding: 5px;
+    border-radius: 5px;
+    display: block;
+    background-color: #3479ea;
+    width: 100px;
+    color: white;
+    text-decoration: none;
+}
+
+.btn-manage:hover {
+    background-color: #347aea8f;
+}
+
+.ttile-user-centers {
+    font-size: 24px;
+    margin: 20px auto;
+    padding-top: 10px;
+    border-top: 1px solid gray;
+    max-width: 350px;
+}
+
+.donation-image {
+    width: 200px;
+}
+
+.type-donation {
+    font-size: 16px;
+}
+
+.btn-create-point {
+    right: 20px;
+    bottom: 20px;
+    padding: 20px;
+    background-color: #3479ea;
+    position: fixed;
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.edit {
+    background-color: #eaa634;
+}
+
+.edit:hover {
+    background-color: #eaa7348e;
+}
+
+.inventary {
+    background-color: #34ea49;
+}
+
+.inventary:hover {
+    background-color: #34ea4993;
+}
+
+.delet {
+    background-color: #ea3434;
+}
+
+.delet:hover {
+    background-color: #ea343493;
+}
+
+.btn-come-back {
+    left: 20px;
+    bottom: 20px;
+    padding: 20px;
+    background-color: #3479ea;
+    position: fixed;
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.user-info {
+    margin: 20px auto;
+    max-width: 500px;
+    text-align: center;
+}
+
+.manage-username {
+    margin: 5px;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.manage-email {
+    margin: 10px;
+    display: block;
+}
+
+.title-user-centers {
+    margin: 20px;
+    font-size: 24px;
+}
+
+.center-title {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.center-edit {
+    border-top: 1px solid #3479ea;
+    max-width: 500px;
+    margin: 10px auto;
+    padding: 10px;
+}
+
+.center-options {
+    display: flex;
+    justify-content: space-around;
+}

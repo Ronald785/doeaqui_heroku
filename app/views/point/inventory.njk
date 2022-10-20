@@ -1,0 +1,72 @@
+{% extends "layout.njk" %}
+
+{% block head %}
+    <title>DoeAqui - Edição</title>
+{% endblock head %}
+
+{% block content %}
+    <link rel="stylesheet" href="/styles/form.css">
+    <link rel="stylesheet" href="/styles/buttons.css">
+    <link rel="stylesheet" href="/styles/view.css">
+    <link rel="stylesheet" href="/styles/inventory.css">
+
+    <a href="javascript:void(0)" onClick="history.go(-1); return false;" class="btn-come-back">Voltar</a>
+
+    <form method="POST" action="/point/inventory/{{ id }}?_method=PUT" id="formInventory" class="form-inventory">
+        <fieldset>
+            <legend>Estoque</legend>
+
+            <div class="inputs" id="inputs">
+                {% if inventorys.length > "0" %}
+                    {% for inventory in inventorys %}
+                            <div class="input-block">
+                                <input type="text" name="name" class="inventory-name" placeholder="Nome" value="{{ inventory.name }}"/>
+
+                                <button type="button" class="inventory-btn" onclick="minusAmount(this)">-</button>
+                                <input type="number" name="amount" class="inventory-amount" value="{{ inventory.amount }}"/>
+                                <button type="button" class="inventory-btn" onclick="plusAmount(this)">+</button>
+                                <select name="level" class="inventory-level">
+                                    {% if inventory.level == "0" %}
+                                        <option value="0" selected>Baixo</option>
+                                    {% else %}
+                                        <option value="0">Baixo</option>
+                                    {% endif %}
+                                    {% if inventory.level == "1" %}
+                                        <option value="1" selected>Médio</option>
+                                    {% else %}
+                                        <option value="1">Médio</option>
+                                    {% endif %}
+                                    {% if inventory.level == "2" %}
+                                        <option value="2" selected>Alto</option>
+                                    {% else %}
+                                        <option value="2">Alto</option>
+                                    {% endif %}
+                                </select>
+                                <button type="button" class="inventory-btn delete" onclick="deleteInput(this)">X</button>
+                            </div>
+                    {% endfor %}
+                {% else %}
+                    <div class="input-block">
+                        <input type="text" name="name" class="inventory-name" placeholder="Nome"/>
+                        <button type="button" class="inventory-btn" onclick="minusAmount(this)">-</button>
+                        <input type="number" name="amount" class="inventory-amount" value="0"/>
+                        <button type="button" class="inventory-btn" onclick="plusAmount(this)">+</button>
+                        <select name="level" class="inventory-level">
+                            <option value="0">Baixo</option>
+                            <option value="1">Médio</option>
+                            <option value="2">Alto</option>
+                        </select>
+                        <button type="button" class="inventory-btn delete" onclick="deleteInput(this)">X</button>
+                    </div>
+                {% endif %}
+            </div>
+        </fieldset>
+
+        <input type="hidden" name="jsonInventory" id="jsonInventory">
+
+        <button type="button" class="primary-button" style="font-size:24px; background: #3c94dc;" onclick="createInput()">+</button>
+        <button type="button" class="primary-button" onclick="saveInventory()">Salvar</button>
+    </form>
+  
+    <script src="/scripts/inventory.js"></script>
+{% endblock content %}

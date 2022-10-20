@@ -1,0 +1,118 @@
+<fieldset>
+    <legend>Dados</legend>
+
+    <div class="input-block">
+        <label for="name">Nome</label>
+        <input name="name"  required value="{{ point.name }}"/>
+    </div>
+
+    <div class="input-block">
+        <label for="about">Sobre</label>
+        <textarea name="about" required >{{ point.about }}</textarea>
+    </div>
+
+    <div class="input-block">
+        <label for="email">Email de contato</label>
+        <input type="email" name="email" placeholder="centro@gmail.com" required value="{{ point.email }}"/>
+    </div>
+
+    <div class="input-block">
+        <label for="site">Link do site</label>
+        <input type="url" name="site" placeholder="https://" value="{{ point.site }}">
+    </div>
+
+    <div class="input-block">
+        <label for="whatsapp">Número do Whatsapp</label>
+        <input type="text" id="whatsapp" name="whatsapp" placeholder="(00) 9 0000-0000" value="{{ point.whatsapp }}"/>
+    </div>
+
+    <div class="input-block">
+        <label for="cep">CEP</label>
+        <input type="text" id="cep" placeholder="00000-000" />
+    </div>
+
+    <div class="input-block">
+        <button type="button" class="primary-button" onclick="searchZipCode()">Buscar</button>
+    </div>
+
+    <div class="input-block">
+        <label for="mapPoint">Selecione no mapa</label>
+        <input type="hidden" id="locationLat" name="locationLat" required value="{{ point.location.lat }}">
+        <input type="hidden" id="locationLng" name="locationLng" required value="{{ point.location.lng }}">
+        <div class="map-point">
+            <div id="mapPoint"></div> 
+        </div>
+    </div>
+
+    {# <div class="input-block images">
+        <label for="images">Foto</label>
+        <div class="images-upload" id="images">
+            <div class="new-upload">
+                <input name="images" placeholder="Cole o link da foto aqui" required type="url"/>
+                <span>
+                    <img src="/images/remove-file.svg" alt="Remover Foto"/>
+                </span>
+            </div>
+        </div>
+
+        <button onclick="addPhotoField()" type="button">
+            <img src="/images/add-file.svg" alt="Nova imagem" />
+        </button>
+    </div> #}
+
+    <div class="input-block">
+        <label for="photo">Foto</label>
+        <input type="text" name="photo" placeholder="https://" required value="{{ point.photo }}"/>
+    </div>
+
+    <div class="input-block">
+        <label for="open_hours">Horário de funcionamento</label>
+        <input type="text" name="open_hours" placeholder="07:00-18:00" required value="{{ point.open_hours }}"/>
+    </div>
+
+    <div class="input-block">
+        <label for="open_weekends ">Atende no fim de semana?</label>
+        <input type="hidden" id="open_weekends" name="open_weekends" required value="{{ point.open_weekends }}"/>
+
+        <div class="button-select">
+            <button type="button" id="btnOpen" onclick="openOnWeekends()">Sim</button>
+            <button type="button" id="btnNot" class="active" onclick="notOpenOnWeekends()">Não</button>
+        </div>
+    </div>
+</fieldset>
+
+<fieldset>
+    <legend>Doações</legend>
+    <div class="input-block">
+        <label for="instructions">Instruções</label>
+        <textarea name="instructions" required>{{ point.instructions }}</textarea>
+    </div>
+    <div class="input-block">
+        <label for="instructions">Tipo de doação</label>
+        <select name="donation" class="type-donation" value= "{{ point.donation }}">
+            {% if point.donation == "food" %}
+                <option value="food" selected>Alimento</option>
+            {% else %}
+                <option value="food">Alimento</option>
+            {% endif %}
+
+            {% if point.donation == "clothes" %}
+                <option value="clothes" selected>Roupas</option>
+            {% else %}
+                <option value="clothes">Roupas</option>
+            {% endif %}
+
+            {% if point.donation == "hygiene" %}
+                <option value="hygiene" selected>Produtos de higiene</option>
+            {% else %}
+                <option value="hygiene">Produtos de higiene</option>
+            {% endif %}
+
+            {% if point.donation == "blood" %}
+                <option value="blood" selected>Sangue</option>
+            {% else %}
+                <option value="blood">Sangue</option>
+            {% endif %}
+        </select>
+    </div>
+</fieldset>

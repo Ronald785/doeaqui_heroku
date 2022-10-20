@@ -1,0 +1,21 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+    <link rel="stylesheet" href="/styles/home.css">
+    <div id="map"></div>
+    <script src="/scripts/map.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2rNZNpzlTbudC8qHoXsNN8i3LGbYWaO0&libraries=geometry&callback=initMap"></script>  
+    <div id="openModal" class="modal">
+        <div class="modal-content">
+            <a id="closeModal" class="fechar" onclick="closeModal()">x</a>
+            <h2>Selecione o tipo de centro de doação</h2>
+            <select id="typeDonation">
+                <option value="food">Comida</option>
+                <option value="clothes">Roupa</option>
+                <option value="hygiene">Higiene</option>
+                <option value="blood">Sangue</option>
+            </select>
+            <button id="btnSearchClosest" onclick="closestPoint()">Localizar</button>
+        </div>
+    </div>
+{% endblock content %}
