@@ -191,3 +191,5 @@ function findClosestN(userLocation, numberOfResults, type) {
 function sortByDist(a, b) {
     return (a.distance - b.distance)
 }
+
+document.addEventListener('DOMContentLoaded', initMap);

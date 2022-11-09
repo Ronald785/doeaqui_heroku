@@ -86,3 +86,5 @@ function notOpenOnWeekends() {
     let open_weekends = document.getElementById("open_weekends");
     open_weekends.value = false;
 }
+
+document.addEventListener('DOMContentLoaded', initMap);
