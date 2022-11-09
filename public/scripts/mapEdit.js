@@ -17,6 +17,8 @@ function initMap() {
     marker = new google.maps.Marker({ title:"Ponto de doação" });
     geocoder = new google.maps.Geocoder();
 
+    addMarker(location, map);
+
     google.maps.event.addListener(map, "click", (event) => {
         addMarker(event.latLng, map);
         let locationLat = document.getElementById("locationLat");
