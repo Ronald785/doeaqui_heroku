@@ -44,22 +44,6 @@
         </div>
     </div>
 
-    {# <div class="input-block images">
-        <label for="images">Foto</label>
-        <div class="images-upload" id="images">
-            <div class="new-upload">
-                <input name="images" placeholder="Cole o link da foto aqui" required type="url"/>
-                <span>
-                    <img src="/images/remove-file.svg" alt="Remover Foto"/>
-                </span>
-            </div>
-        </div>
-
-        <button onclick="addPhotoField()" type="button">
-            <img src="/images/add-file.svg" alt="Nova imagem" />
-        </button>
-    </div> #}
-
     <div class="input-block">
         <label for="photo">Foto</label>
         <input type="text" name="photo" placeholder="https://" required value="{{ point.photo }}"/>
@@ -89,30 +73,43 @@
     </div>
     <div class="input-block">
         <label for="instructions">Tipo de doação</label>
-        <select name="donation" class="type-donation" value= "{{ point.donation }}">
-            {% if point.donation == "food" %}
-                <option value="food" selected>Alimento</option>
-            {% else %}
-                <option value="food">Alimento</option>
-            {% endif %}
-
-            {% if point.donation == "clothes" %}
-                <option value="clothes" selected>Roupas</option>
-            {% else %}
-                <option value="clothes">Roupas</option>
-            {% endif %}
-
-            {% if point.donation == "hygiene" %}
-                <option value="hygiene" selected>Produtos de higiene</option>
-            {% else %}
-                <option value="hygiene">Produtos de higiene</option>
-            {% endif %}
-
-            {% if point.donation == "blood" %}
-                <option value="blood" selected>Sangue</option>
-            {% else %}
-                <option value="blood">Sangue</option>
-            {% endif %}
-        </select>
+        <div class="type-donation-grid">
+            <label class="container">
+                <h3 class="title-donation-checkbox">Alimento</h3>
+                {% if (point.donation).indexOf("food") > -1 %}
+                    <input type="checkbox" name="donation" checked="checked" value="food">
+                {% else %}
+                    <input type="checkbox" name="donation" value="food">
+                {% endif %}
+                <span class="checkmark"></span>
+            </label>
+            <label class="container">
+                <h3 class="title-donation-checkbox">Roupas</h3>
+                {% if (point.donation).indexOf("clothes") > -1 %}
+                    <input type="checkbox" name="donation" checked="checked" value="clothes">
+                {% else %}
+                    <input type="checkbox" name="donation" value="clothes">
+                {% endif %}
+                <span class="checkmark"></span>
+            </label>
+            <label class="container">
+                <h3 class="title-donation-checkbox">Produtos de higiene</h3>
+                {% if (point.donation).indexOf("hygiene") > -1 %}
+                    <input type="checkbox" name="donation" checked="checked" value="hygiene">
+                {% else %}
+                    <input type="checkbox" name="donation" value="hygiene">
+                {% endif %}
+                <span class="checkmark"></span>
+            </label>
+            <label class="container">
+                <h3 class="title-donation-checkbox">Sangue</h3>
+                {% if (point.donation).indexOf("blood") > -1 %}
+                    <input type="checkbox" name="donation" checked="checked" value="blood">
+                {% else %}
+                    <input type="checkbox" name="donation" value="blood">
+                {% endif %}
+                <span class="checkmark"></span>
+            </label>
+        </div>
     </div>
 </fieldset>

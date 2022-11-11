@@ -125,9 +125,13 @@ function createMarkers(centers) {
             scaledSize: new google.maps.Size(50, 50)
         };
 
-        if(donation == "food") icon["url"] = "/images/food.svg";
-        if(donation == "clothes") icon["url"] = "/images/clothes.svg";
-        if(donation == "blood") icon["url"] = "/images/blood.svg";
+        if(donation.includes("food")) {
+            icon["url"] = "/images/food.svg";
+        } else if(donation.includes("clothes")) {
+            icon["url"] = "/images/clothes.svg";
+        } else if(donation.includes("blood")) {
+            icon["url"] = "/images/blood.svg";
+        } 
 
         addMarker(position, title, content, icon, donation);
     }
@@ -178,7 +182,7 @@ function closestPoint() {
 function findClosestN(userLocation, numberOfResults, type) {
     var closest = [];
     for (var i = 0; i < markers.length; i++) {
-        if(markers[i].type == type) {
+        if(markers[i].type.includes(type)) {
             markers[i].distance = google.maps.geometry.spherical.computeDistanceBetween(userLocation, markers[i].getPosition());
             markers[i].setMap(null);
             closest.push(markers[i]);

@@ -78,15 +78,7 @@
             </div>
 
             <div class="block">
-                {% if point.donation == "clothes" %}
-                    <h2 class="type-donation">Roupas</h1>
-                {% elif point.donation == "food" %}
-                    <h2 class="type-donation">Comida</h1>
-                {% elif point.donation == "hygiene" %}
-                    <h2 class="type-donation">Produtos de higiene</h1>
-                {% elif point.donation == "blood" %}
-                    <h2 class="type-donation">Sangue</h1>
-                {% endif %}
+                <h2 class="type-donation">{{ type_donation }}</h1>
             </div>
         </fieldset>
 
