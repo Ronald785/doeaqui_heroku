@@ -3,7 +3,9 @@ const { auth } = require("../../config/firebase");
 
 //Render Create
 function create(server, req, res) {
-    res.render("point/create");
+    let point = {};
+    point.donation = [];
+    res.render("point/create", {point});
 }
 
 //View Center
